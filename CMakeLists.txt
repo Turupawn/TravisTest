@@ -3,7 +3,7 @@ project(modio)
 set(CMAKE_BUILD_TYPE Release)
 set (CMAKE_CXX_STANDARD 11)
 
-add_definitions(-DBUILDING_MODIO_DLL -DCURL_STATICLIB)
+add_definitions(-DBUILDING_MODIO_DLL -DCURL_STATICLIB -D_CRT_SECURE_NO_WARNINGS)
 
 include_directories(include)
 
