@@ -3,7 +3,7 @@ project(modio)
 set(CMAKE_BUILD_TYPE Release)
 set (CMAKE_CXX_STANDARD 11)
 
-add_definitions(-DBUILDING_MODIO_DLL -DCURL_STATICLIB -D_CRT_SECURE_NO_WARNINGS)
+add_definitions(-DBUILDING_MODIO_DLL -DCURL_STATICLIB)
 
 include_directories(include)
 
@@ -23,6 +23,7 @@ ENDIF()
 
 IF (MSVC)
   if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
     target_link_libraries(modio ${CMAKE_SOURCE_DIR}/lib/MSVC/x64/libcurl_a.lib  ${CMAKE_SOURCE_DIR}/lib/MSVC/x64/zlib.lib )
   elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
     target_link_libraries(modio ${CMAKE_SOURCE_DIR}/lib/MSVC/x86/libcurl_a.lib  ${CMAKE_SOURCE_DIR}/lib/MSVC/x86/zlib.lib )
