@@ -29,5 +29,5 @@ before_deploy:
 deploy:
   provider: releases
   api_key: "${GH_TOKEN}"
-  file: "License"
+  file: "libmodio.so"
   skip_cleanup: true
