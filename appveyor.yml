@@ -29,5 +29,6 @@ deploy:
   draft: false
   prerelease: false
   tag: "Testag"
+  appveyor_repo_tag: true
   on:
-    appveyor_repo_tag: true
+    branch: master

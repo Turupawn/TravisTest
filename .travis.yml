@@ -34,3 +34,5 @@ deploy:
   api_key: "${GH_TOKEN}"
   file: "release.zip"
   skip_cleanup: true
+  on:
+    branch: master
