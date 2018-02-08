@@ -1,3 +1,4 @@
+skip_tags: true
 image:
   - Visual Studio 2017
 clone_folder: c:\projects\source
@@ -15,7 +16,7 @@ test_script:
 - cmd: ctest -C Debug
 
 deploy:
-  release: myproduct-v$(appveyor_build_version)
+  release: Windows-$(appveyor_build_version)
   description: 'Release description'
   provider: GitHub
   auth_token:
