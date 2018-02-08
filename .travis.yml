@@ -24,10 +24,13 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "${GH_USER}"
   - git config --local user.email "${GH_EMAIL}"
-  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then git tag "linux" ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git tag "osx" ; fi
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then zip release.zip libmodio.so ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then zip release.zip libmodio.dylib ; fi
 
 deploy:
   provider: releases
   api_key: "${GH_TOKEN}"
-  file: "libmodio.so"
+  file: "release.zip"
   skip_cleanup: true
