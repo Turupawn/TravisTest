@@ -19,7 +19,7 @@ artifacts:
     name: modio.dll
 
 deploy:
-  release: Windows-$(appveyor_build_version)
+  release: Windowss-$(appveyor_build_version)
   description: 'Release description'
   provider: GitHub
   force_update: true
@@ -27,7 +27,6 @@ deploy:
     secure: HZl4Pq/cLyy+zdJ4Y4tJjavAXoavxw8GH7CyT3mVw5Pcn1DBSmKsCQ1rLYpI6n9V # your encrypted token from GitHub
   draft: false
   prerelease: false
-  tag: $(APPVEYOR_REPO_TAG_NAME)
   on:
     branch: master                 # release from master branch only
     appveyor_repo_tag: true        # deploy on tag push only
