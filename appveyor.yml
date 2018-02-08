@@ -13,6 +13,8 @@ build_script:
 
     dir
 
+    dir C:\projects\source\build\Debug\
+
 test_script:
 - cmd: ctest -C Debug
 
@@ -22,7 +24,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: HZl4Pq/cLyy+zdJ4Y4tJjavAXoavxw8GH7CyT3mVw5Pcn1DBSmKsCQ1rLYpI6n9V # your encrypted token from GitHub
-  artifact: /.*\.nupkg/            # upload all NuGet packages to release assets
+  artifact: C:\projects\source\build\Debug\modio.dll            # upload all NuGet packages to release assets
   draft: false
   prerelease: false
   on:
