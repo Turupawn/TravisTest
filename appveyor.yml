@@ -15,7 +15,7 @@ test_script:
 - cmd: ctest -C Debug
 
 artifacts:
-  - path: build\staging\*.dll
+  - path: build\Debug\*.dll
     name: modio.dll
 
 deploy:
