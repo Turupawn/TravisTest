@@ -15,8 +15,7 @@ test_script:
 - cmd: ctest -C Debug
 
 deploy:
-  tag: $(APPVEYOR_REPO_TAG_NAME)
-  release: Windows-$(appveyor_build_version)
+  #release: Windows-$(appveyor_build_version)
   description: 'Release description'
   provider: GitHub
   force_update: true
@@ -25,6 +24,7 @@ deploy:
   artifact: C:\projects\source\build\Debug\modio.dll;C:\projects\source\build\Debug\modio.lib            # upload all NuGet packages to release assets
   draft: false
   prerelease: false
+  tag: $(APPVEYOR_REPO_TAG_NAME)
   on:
     branch: master                 # release from master branch only
     appveyor_repo_tag: true        # deploy on tag push only
