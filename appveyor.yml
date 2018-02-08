@@ -14,6 +14,10 @@ build_script:
 test_script:
 - cmd: ctest -C Debug
 
+artifacts:
+  - path: build\staging\*.dll
+    name: modio.dll
+
 deploy:
   #release: Windows-$(appveyor_build_version)
   description: 'Release description'
@@ -21,7 +25,6 @@ deploy:
   force_update: true
   auth_token:
     secure: HZl4Pq/cLyy+zdJ4Y4tJjavAXoavxw8GH7CyT3mVw5Pcn1DBSmKsCQ1rLYpI6n9V # your encrypted token from GitHub
-  artifact: /.*\.dll/
   draft: false
   prerelease: false
   tag: $(APPVEYOR_REPO_TAG_NAME)
